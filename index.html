@@ -54,14 +54,6 @@
           <div class="valueDisp" id="Kval">200</div>
         </div>
         <input id="K" type="range" min="1" max="100" step="3" value="50">
-
-        <div class="spacer"></div>
-
-        <div class="paramRow">
-          <div class="small">L (макс эпициклов)</div>
-          <div class="valueDisp" id="Lval">50</div>
-        </div>
-        <input id="L" type="range" min="1" max="100" step="1" value="50">
       </div>
 
       <!-- Partial sums configuration -->
@@ -78,6 +70,11 @@
           <input id="Manimate" type="number" min="1" max="500" value="150">
         </div>
       </div>
+      <div class="paramRow">
+        <div class="small">L (макс эпициклов, визуальное!)</div>
+        <div class="valueDisp" id="Lval">50</div>
+      </div>
+      <input id="L" type="range" min="1" max="100" step="1" value="50">
 
       <!-- Mode selection -->
       <div>
@@ -86,7 +83,7 @@
           <button id="modeOrder" class="toggle active">|n| ≤ M</button>
           <button id="modeMag" class="toggle">top M (по модулю)</button>
         </div>
-      </div>
+      </div>  
 
       <!-- Action buttons -->
       <div>
