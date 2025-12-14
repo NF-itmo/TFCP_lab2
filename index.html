@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fourier Epicycles — high-quality PNG export</title>
+  <link rel="stylesheet" href="styles/theme.css" />
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Canvas Panel -->
+    <div class="canvasPanel">
+      <div class="canvasHeader">
+        <div class="small">Tip: Выбор пресета → Построить → Вычислить коэффициенты → Анимация</div>
+      </div>
+
+      <canvas id="cv" tabindex="0"></canvas>
+
+      <div class="canvasFooter">
+        <div class="legend" id="legend"></div>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Preset buttons -->
+      <div>
+        <div class="label"> Пресет </div>
+        <div class="buttonGroup">
+          <button data-preset="heart">Heart</button>
+          <button data-preset="flower">Flower</button>
+          <button data-preset="spiral">Spiral</button>
+          
+          <button id="btnDraw" class="primary">Draw</button>
+          <button id="btnClear" class="secondary">Clear</button>
+        </div>
+      </div>
+
+      <!-- Parameters sliders -->
+      <div>
+        <div class="label">Параметры</div>
+
+        <div class="paramRow">
+          <div class="small">N — точки</div>
+          <div class="valueDisp" id="Nval">2000</div>
+        </div>
+        <input id="N" type="range" min="300" max="4000" step="100" value="2000">
+
+        <div class="spacer"></div>
+
+        <div class="paramRow">
+          <div class="small">K (коэф.)</div>
+          <div class="valueDisp" id="Kval">200</div>
+        </div>
+        <input id="K" type="range" min="1" max="100" step="3" value="50">
+
+        <div class="spacer"></div>
+
+        <div class="paramRow">
+          <div class="small">L (макс эпициклов)</div>
+          <div class="valueDisp" id="Lval">50</div>
+        </div>
+        <input id="L" type="range" min="1" max="100" step="1" value="50">
+      </div>
+
+      <!-- Partial sums configuration -->
+      <div>
+        <div class="label">Частичные суммы (m)</div>
+        <textarea id="Mlist">5,15,50,150</textarea>
+        <div class="badges" id="Mbadges"></div>
+      </div>
+
+      <!-- Animation M configuration -->
+      <div>
+        <div class="label">M для анимации</div>
+        <div class="numberInputContainer">
+          <input id="Manimate" type="number" min="1" max="500" value="150">
+        </div>
+      </div>
+
+      <!-- Mode selection -->
+      <div>
+        <div class="label">Режим выбора членов</div>
+        <div class="buttonGroup">
+          <button id="modeOrder" class="toggle active">|n| ≤ M</button>
+          <button id="modeMag" class="toggle">top M (по модулю)</button>
+        </div>
+      </div>
+
+      <!-- Action buttons -->
+      <div>
+        <div class="label">Действия</div>
+        <div class="buttonGroup">
+          <button id="btnBuild" class="primary">Построить</button>
+          <button id="btnCompute">Вычислить коэффициенты</button>
+          <button id="btnAnimate">Анимация</button>
+          <button id="btnExportPNG">Экспорт в PNG</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { initApp, setupAllHandlers } from './js/app.js';
+    
+    window.addEventListener("DOMContentLoaded", () => {
+      const appState = initApp();
+      setupAllHandlers(appState);
+    })
+  </script>
+</body>
+</html>
