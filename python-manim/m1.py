@@ -45,7 +45,7 @@ def compute_coeffs(points, K):
     coeffs.sort(key=lambda x: abs(x[1]), reverse=True)
     return coeffs
 
-class FourierHeartEnhanced(Scene):
+class FourierEnhanced(Scene):
     def construct(self):
         # Создаем точки и коэффициенты
         points = svg_to_points("./github.svg") * -1 # get_points()

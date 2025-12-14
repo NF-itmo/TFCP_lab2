@@ -67,7 +67,7 @@ def make_legend():
 
     return legend_group
 
-class FourierApproximationStatic(Scene):
+class FourierStatic(Scene):
     def construct(self):
         z = svg_to_points("./github.svg") * -1
         coeffs = compute_coeffs(z, K=60)
